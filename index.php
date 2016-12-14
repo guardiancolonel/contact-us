@@ -86,18 +86,24 @@
             $('#contact_form').on('submit', function(e) {
             	e.preventDefault();
             	var formData = $(this).serialize();
+
+              $(this).find('input').each(function(key, value) {
+                  if ( $(value).val().length === 0 ) {
+                    console.log($(value).attr('name') + " Can't be empty");
+                  }
+              });
             	// Form Validation
             	// Server Messages
-            	$.ajax({
-            		url: "contact_us.php",
-            		type: "POST",
-            		data: formData,
-            		datatType: "json"
-            	}).done(function( data ) {
-            		console.log( data );
-            	}).fail(function( data ) {
-            		console.log( data );
-            	});
+            	// $.ajax({
+            	// 	url: "contact_us.php",
+            	// 	type: "POST",
+            	// 	data: formData,
+            	// 	datatType: "json"
+            	// }).done(function( data ) {
+            	// 	console.log( data );
+            	// }).fail(function( data ) {
+            	// 	console.log( data );
+            	// });
             });
         </script>
     </body>
