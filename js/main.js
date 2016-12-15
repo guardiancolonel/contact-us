@@ -25,14 +25,12 @@ $(function() {
     form.find('input').each(function(key, value) {
         if ( $(value).val().length === 0 ) {
           $(value).parent().addClass('has-error');
-          console.log($(value).attr('name') + " Can't be empty");
           validForm = false;
         }
 
         if ( $(value).attr('name') === 'email' ) {
           if ( ! validateEmail( $(value).val() ) ) {
             $(value).parent().addClass('has-error');
-            console.log(" Not a valid email");
             validForm = false;
           }
         }
